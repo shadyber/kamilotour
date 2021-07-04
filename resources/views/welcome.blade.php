@@ -717,12 +717,17 @@
     <section class="contact__wrap ptb-100 bg-white">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.673660552166!2d38.74025561511851!3d9.002145593539513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b859ceee0ccf1%3A0x8dd38cb91b9a08ec!2zRXRoaW9waWEgVG91ciBhbmQgVHJhdmVscyAtIOGKouGJteGLruGMteGLqyDhi6jhjInhiaXhip3hibUsIOGMieGLniDhiqXhipMg4Yuo4YiY4Yqq4YqTIOGKquGIq-GLrQ!5e0!3m2!1sen!2set!4v1625432073191!5m2!1sen!2set"
                 width="100%" height="400"
-                style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                style="border:0;" allowfullscreen="" loading="lazy">
+
+        </iframe>
         <!-- Start Contact Area -->
+        @foreach(\App\Models\Address::address() as $address)
         <div class="contact__address bg-white">
             <div class="container">
+
                 <div class="row">
                     <div class="contact__wrap clearfix">
+
                         <!-- Start Single Address -->
                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                             <div class="contact bg-cat-1">
@@ -730,7 +735,8 @@
                                     <i class="fa fa-pin"></i>
                                 </div>
                                 <div class="address__details">
-                                    <p>Alcatraz Island Photo Albf dhaka ,<br>New York</p>
+                                    <p>{{$address->address1}}</p>
+                                    <p>{{$address->address2}}</p>
                                 </div>
                             </div>
                         </div>
@@ -742,8 +748,8 @@
                                     <i class="fa fa-email"></i>
                                 </div>
                                 <div class="address__details">
-                                    <p><a href="/mailto:www.yourmail.com">www.yourmail.com</a></p>
-                                    <p><a href="/mailto:www.yourmail.com">www.yourmail.com</a></p>
+                                    <p><a href="mailto:{{$address->email}}">{{$address->email}}</a></p>
+
                                 </div>
                             </div>
                         </div>
@@ -755,29 +761,20 @@
                                     <i class="fa fa-phone"></i>
                                 </div>
                                 <div class="address__details">
-                                    <p><a href="/phone:+66025644424857">+660 256444 24857</a></p>
-                                    <p><a href="/phone:+66025644424857">+660 256444 24857</a></p>
+                                    <p><a href="tel:{{$address->tel}}">{{$address->tel}}</a></p>
+                                    <p><a href="tel:{{$address->tel2}}">{{$address->tel2}}</a></p>
                                 </div>
                             </div>
                         </div>
                         <!-- End Single Address -->
-                        <!-- Start Single Address -->
-                        <div class="hidden-md hidden-lg col-sm-6 hidden-xs">
-                            <div class="contact bg-cat-1">
-                                <div class="address__icon">
-                                    <i class="fa fa-phone"></i>
-                                </div>
-                                <div class="address__details">
-                                    <p><a href="/phone:+66025644424857">+660 256444 24857</a></p>
-                                    <p><a href="/phone:+66025644424857">+660 256444 24857</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Address -->
+
+
                     </div>
                 </div>
+
             </div>
         </div>
+        @endforeach
     </section>
     <!-- End Blog Area -->
 

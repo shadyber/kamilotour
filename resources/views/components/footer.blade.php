@@ -9,10 +9,10 @@
                         <div class="footer__wedget">
                             <div class="footer__logo">
                                 <a href="/#">
-                                    <img src="/images/logo/ramble.png" alt="logo">
+                                    <img src="/images/logo/kamilo.png" alt="logo">
                                 </a>
                             </div>
-                            <p class="footer__dtl">Lorem ipsum dolor sit amet, consectetur adipisicing ejlit, sed do eiusmod tempor incididunt ut labore egtt dolore magna aliqua. Ut enim ad minim veniam, quisgt nostrud exercitation ullamco laboris.</p>
+                            <p class="footer__dtl"> Kamilo Tour and Travel is a 100% owned and operated Ethiopian company. We are passionate about giving you the ultimate Ethiopian experience possible. All our tours use the best hotels, guides and transport vehicles.So why not take a trip with us and let us show you the Ethiopia that we know and love!</p>
                             <ul class="footer__social__icon">
                                 <li><a href="/https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
                                 <li><a href="/https://www.pinterest.com/"><i class="fa fa-pinterest"></i></a></li>
@@ -27,29 +27,20 @@
                     <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 xs--mt--40">
                         <div class="footer__wedget">
                             <div class="footer__inner">
-                                <h2 class="footer__title">latest tweets</h2>
+                                <h2 class="footer__title">latest packages</h2>
+                              @foreach(\App\Models\Product::lastN(3) as $package)
                                 <!-- Start tweets Feed -->
                                 <div class="tweets">
                                     <div class="tweets__icon">
-                                        <i class="fa fa-twitter"></i>
+                                        <i class="fa fa-paper-plane"></i>
                                     </div>
                                     <div class="tweets__details">
-                                        <p>Lorem ipsum dolor sit am ectetur adip isicing elit, sed eiusmod ipsum dolo hgtfed</p>
-                                        <a href="/#">https://tweeterhrad.com</a>
+                                        <p>{{substr($package->detail,0,72)}}</p>
+                                        <a href="/package/{{$package->slug}}">{{$package->title}}</a>
                                     </div>
                                 </div>
                                 <!-- End tweets Feed -->
-                                <!-- Start tweets Feed -->
-                                <div class="tweets">
-                                    <div class="tweets__icon">
-                                        <i class="fa fa-twitter"></i>
-                                    </div>
-                                    <div class="tweets__details">
-                                        <p>Lorem ipsum dolor sit am ectetur adip isicing elit, sed eiusmod ipsum dolo hgtfed</p>
-                                        <a href="/#">https://tweeterhrad.com</a>
-                                    </div>
-                                </div>
-                                <!-- End tweets Feed -->
+                                  @endforeach
                             </div>
                         </div>
                     </div>
@@ -84,7 +75,7 @@
                 <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
                     <div class="copyright__inner">
                         <div class="copyright__text">
-                            <p>Copyright © 2017<a href="/https://devitems.com">devitems.com</a> All Right Reserved.</p>
+                            <p>Copyright © 2021<a href="/https://kamilotour.com">Kamilotour.com</a> All Right Reserved.</p>
                         </div>
                     </div>
                 </div>

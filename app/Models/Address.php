@@ -26,4 +26,8 @@ class Address extends Model
         'youtube',
         'linkedin'
     ];
+
+    public static function address(){
+        return Address::orderBy('id', 'desc')->take(1)->get();
+    }
 }

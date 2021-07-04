@@ -20,4 +20,8 @@ class About extends Model
         'value'
 
     ];
+
+    public static function about(){
+        return Address::orderBy('id', 'desc')->take(1)->get();
+    }
 }

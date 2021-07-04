@@ -24,8 +24,8 @@ class AboutSeeder extends Seeder
             To make sure that all members of the society around the attractions benefit from the industry
             To play a major role in making the country one of the middle income countries by 2025',
 
-            'photo' => '/img/banner.jpg',
-            'video' => 'https://youtube.com/watch/kamilo',
+            'photo' => '/images/others/about/1.png',
+            'video' => 'https://www.youtube.com/embed/kThX2vhO3zY',
 
         ]);
     }

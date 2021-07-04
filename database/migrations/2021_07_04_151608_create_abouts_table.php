@@ -19,8 +19,8 @@ class CreateAboutsTable extends Migration
             $table->longText('about');
             $table->longText('mission')->nullable();
             $table->longText('vision')->nullable();
-            $table->string('photo');
-            $table->string('video')->nullable();
+            $table->string('photo')->default('/images/others/service/1.png');
+            $table->string('video')->default('https://www.youtube.com/embed/HwgnhdZBI-M');
             $table->timestamps();
         });
     }

@@ -29,3 +29,17 @@ Route::resource('/address', App\Http\Controllers\AddressController::class);
 Route::resource('/album', App\Http\Controllers\AlbumController::class);
 Route::resource('/photo', App\Http\Controllers\PhotoController::class);
 Route::resource('/about', App\Http\Controllers\AboutController::class);
+
+
+
+Route::get('/aboutus', function (){
+    $about=\App\Models\About::all()->first();
+    return view('about')->with('about',$about);
+});
+
+Route::get('/contactus', function (){
+    $address=\App\Models\Address::all()->first();
+    return view('contactus')->with('address',$address);
+});
+
+
