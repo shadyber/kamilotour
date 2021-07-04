@@ -14,11 +14,11 @@
                             </div>
                             <p class="footer__dtl">Lorem ipsum dolor sit amet, consectetur adipisicing ejlit, sed do eiusmod tempor incididunt ut labore egtt dolore magna aliqua. Ut enim ad minim veniam, quisgt nostrud exercitation ullamco laboris.</p>
                             <ul class="footer__social__icon">
-                                <li><a href="/https://www.linkedin.com/"><i class="zmdi zmdi-linkedin"></i></a></li>
-                                <li><a href="/https://www.pinterest.com/"><i class="zmdi zmdi-pinterest"></i></a></li>
-                                <li><a href="/https://www.tumblr.com/"><i class="zmdi zmdi-tumblr"></i></a></li>
-                                <li><a href="/https://plus.google.com/"><i class="zmdi zmdi-google"></i></a></li>
-                                <li><a href="/https://www.facebook.com/"><i class="zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="/https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="/https://www.pinterest.com/"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="/https://www.tumblr.com/"><i class="fa fa-tumblr"></i></a></li>
+                                <li><a href="/https://plus.google.com/"><i class="fa fa-google"></i></a></li>
+                                <li><a href="/https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                                 <!-- Start tweets Feed -->
                                 <div class="tweets">
                                     <div class="tweets__icon">
-                                        <i class="zmdi zmdi-twitter"></i>
+                                        <i class="fa fa-twitter"></i>
                                     </div>
                                     <div class="tweets__details">
                                         <p>Lorem ipsum dolor sit am ectetur adip isicing elit, sed eiusmod ipsum dolo hgtfed</p>
@@ -42,7 +42,7 @@
                                 <!-- Start tweets Feed -->
                                 <div class="tweets">
                                     <div class="tweets__icon">
-                                        <i class="zmdi zmdi-twitter"></i>
+                                        <i class="fa fa-twitter"></i>
                                     </div>
                                     <div class="tweets__details">
                                         <p>Lorem ipsum dolor sit am ectetur adip isicing elit, sed eiusmod ipsum dolo hgtfed</p>

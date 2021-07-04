@@ -15,8 +15,14 @@
                     </div>
                     <div class="header__top__right">
                         <ul class="login__regester">
-                            <li><a class="modal-view button" href="/#" data-toggle="modal" data-target="#loginform"><i class="zmdi zmdi-account"></i>Login</a></li>
-                            <li><a  class="modal-view button" href="/#" data-toggle="modal" data-target="#registrationform"><i class="zmdi zmdi-account-add"></i>Register</a></li>
+                            @guest
+                                <li><a class="modal-view button" href="/#" data-toggle="modal" data-target="#loginform"><i class="fa fa-account"></i>Login</a></li>
+                                <li><a  class="modal-view button" href="/#" data-toggle="modal" data-target="#registrationform"><i class="fa fa-account-add"></i>Register</a></li>
+                            @endguest
+
+                            @auth
+                                <li><a  class="modal-view button" href="/home"><i class="fa fa-account-add"></i> Profile</a></li>
+                            @endauth
                         </ul>
                     </div>
                 </div>
@@ -24,19 +30,27 @@
                     <div class="mainmenu__area">
                         <nav class="mainmenu__nav">
                             <ul class="main__menu">
-                                <li class="drop"><a href="/">home</a>
+                                <li class="drop"><a href="/">home</a>  </li>
+                                <li><a href="/aboutus">about</a></li>
 
-                                </li>
-                                <li><a href="/about">about</a></li>
-
-                                <li><a href="/gallery">gallery</a></li>
+                                <li><a href="/ourgallery">gallery</a></li>
                                 <li class="drop"><a href="/package">Packages</a>
                                     <ul class="dropdown">
-                                        <li><a href="/package/1">Package one </a></li>
-                                        <li><a href="/package/2">Package Two</a></li>
+                                        @foreach(\App\Models\Product::lastN(10) as $package)
+                                        <li><a href="/package/{{$package->slug}}">{{$package->title}} </a></li>
+                                        @endforeach
+
                                     </ul>
                                 </li>
                                 <li><a href="/contact">contact</a></li>
+                                @guest
+                                <li><a class="modal-view button" href="/#" data-toggle="modal" data-target="#loginform"><i class="fa fa-account"></i>Login</a></li>
+                                <li><a  class="modal-view button" href="/#" data-toggle="modal" data-target="#registrationform"><i class="fa fa-account-add"></i>Register</a></li>
+                                @endguest
+
+                                @auth
+                                    <li><a  class="modal-view button" href="/home"><i class="fa fa-account-add"></i> Profile</a></li>
+                                @endauth
                             </ul>
                         </nav>
                     </div>
@@ -44,11 +58,11 @@
             </div>
             <div class="col-md-2 col-lg-2 col-sm-2 hidden-sm">
                 <ul class="social__icon icon--position">
-                    <li><a href="/https://www.linkedin.com/"><i class="zmdi zmdi-linkedin"></i></a></li>
-                    <li><a href="/https://www.pinterest.com/"><i class="zmdi zmdi-pinterest"></i></a></li>
-                    <li><a href="/https://www.tumblr.com/"><i class="zmdi zmdi-tumblr"></i></a></li>
-                    <li><a href="/https://plus.google.com/"><i class="zmdi zmdi-google"></i></a></li>
-                    <li><a href="/https://www.facebook.com/"><i class="zmdi zmdi-facebook"></i></a></li>
+                    <li><a href="/https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="/https://www.pinterest.com/"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a href="/https://www.tumblr.com/"><i class="fa fa-tumblr"></i></a></li>
+                    <li><a href="/https://plus.google.com/"><i class="fa fa-google"></i></a></li>
+                    <li><a href="/https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
                 </ul>
             </div>
         </div>

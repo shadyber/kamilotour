@@ -2055,6 +2055,32 @@ input:-moz-placeholder { / Firefox 18- /
 }
 
 
+.single__tour__box email {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  background: rgba(0, 0, 0, 0) url("images/tour-details/booking-table/shape-1.png") no-repeat scroll 91% 8px / 13px 23px !important;
+}
+
+.single__tour__box password {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  background: rgba(0, 0, 0, 0) url("images/tour-details/booking-table/shape-1.png") no-repeat scroll 91% 8px / 13px 23px !important;
+}
+
+
+.single__tour__box date {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  background: rgba(0, 0, 0, 0) url("images/tour-details/booking-table/shape-1.png") no-repeat scroll 91% 8px / 13px 23px !important;
+}
+
+
 
 /*---------------------------------------
   22. Our Tour Details

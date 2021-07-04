@@ -78,15 +78,15 @@
                                 <div class="packages__hover__info">
                                     <div class="package__hover__inner">
                                         <h4><a href="#">{{$package->title}}</a></h4>
-                                        <h6><i class="zmdi zmdi-alarm"></i>{{$package->length}}</h6>
+                                        <h6><i class="fa fa-alarm"></i>{{$package->length}}</h6>
                                         <p> {{substr($package->detail,0,150)}}... </p>
                                         <div class="package--rating--btn">
                                             <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
                                             </ul>
                                             <div class="packages__btn">
                                                 <a class="view__btn" href="/package/{{$package->slug}}">view more</a>

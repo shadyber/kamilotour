@@ -12,6 +12,8 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- All css files are included here. -->
     <!-- Bootstrap fremwork main css -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">

@@ -20,6 +20,8 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- All css files are included here. -->
     <!-- Bootstrap fremwork main css -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -38,8 +40,6 @@
     <!-- Modernizr JS -->
     <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
 
@@ -62,9 +62,9 @@
                             <div class="slide__align--center">
                                 <div class="slider__inner">
                                     <h2 class="wow">Find your special ture today</h2>
-                                    <h1 class="wow">with Kamilo tours</h1>
+                                    <h1 class="wow">with Kamilo tours and travel agency.</h1>
                                     <div class="slider__btn wow">
-                                        <a class="rm__btn btn--transparent" href="/tour-details.html">view tours</a>
+                                        <a class="rm__btn btn--transparent" href="/package">view tours</a>
                                     </div>
                                 </div>
                             </div>
@@ -81,9 +81,9 @@
                             <div class="slide__align--center">
                                 <div class="slider__inner">
                                     <h2 class="wow">Find your special ture today</h2>
-                                    <h1 class="wow">with Kamilo tours</h1>
+                                    <h1 class="wow">with Kamilo tours and travel agency</h1>
                                     <div class="slider__btn wow">
-                                        <a class="rm__btn btn--transparent" href="/tour-details.html">view tours</a>
+                                        <a class="rm__btn btn--transparent" href="/package">view tours</a>
                                     </div>
                                 </div>
                             </div>
@@ -100,9 +100,9 @@
                             <div class="slide__align--center">
                                 <div class="slider__inner">
                                     <h2 class="wow">Find your special ture today</h2>
-                                    <h1 class="wow">with Kamilo tours</h1>
+                                    <h1 class="wow">with Kamilo tours and travel agency</h1>
                                     <div class="slider__btn wow">
-                                        <a class="rm__btn btn--transparent" href="/tour-details.html">view tours</a>
+                                        <a class="rm__btn btn--transparent" href="/package">view tours</a>
                                     </div>
                                 </div>
                             </div>
@@ -116,29 +116,31 @@
         <!-- Start Select Option -->
         <div class="select__option__wrap">
             <div class="container">
+                <form action="/search" method="post">
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="select__option__inner">
                             <div class="single__option">
-                                <input type="text" placeholder="tour name">
+                                <input type="text" name="key" placeholder="tour name">
                             </div>
                             <!-- Start Single option -->
                             <div class="single__option">
-                                <select>
-                                    <option>tour typr</option>
-                                    <option>tour typr</option>
-                                    <option>tour typr</option>
-                                    <option>tour typr</option>
+                                <select name="tour_type">
+                                    <option value=""> Select Tour Type</option>
+                                    <option value="sightseeing">Sightseeing Tours</option>
+                                    <option value="shore">Shore Excursion Tours</option>
+                                    <option value="adventure">Adventure or Sporting Tours</option>
+                                    <option value="combing">Combining Tours</option>
                                 </select>
                             </div>
                             <!-- End Single option -->
                             <!-- Start Single option -->
                             <div class="single__option">
-                                <select>
-                                    <option>destination</option>
-                                    <option>destination</option>
-                                    <option>destination</option>
-                                    <option>destination</option>
+                                <select name="destination">
+                                    <option value="">Select Destination</option>
+                                    @foreach(\App\Models\Destination::all() as $destination)
+                                    <option value="{{$destination->id}}">{{$destination->title}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <!-- End Single option -->
@@ -150,12 +152,14 @@
                             <!-- End Single option -->
                             <!-- Start Single option -->
                             <div class="single__option">
-                                <a class="btn__search" href="/#">search tours</a>
+                             <button type="submit" class="btn__search">Search</button>
                             </div>
                             <!-- End Single option -->
                         </div>
                     </div>
+
                 </div>
+                </form>
             </div>
         </div>
     </div>
@@ -167,7 +171,10 @@
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                     <div class="section__title text-center">
                         <h2 class="title__line">why  <span class="text-theme">choose us</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utllaf </p>
+                        <p>At Kamilotours, we will provide a travel experience you will never forget.
+                            Witness the magic of Ethiopia’s religious holidays, learn about the ancient kingdoms that shaped Ethiopia on the Northern Historical Route,
+                            walk amongst the tribes of the South Omo Valley, feel the thrill of adventure on an overland expedition into the Danakil Depression,
+                            measure up the size of the Simien and Bale Mountains from your tent, or see endemic bird species in the Rift Valley.</p>
                     </div>
                 </div>
             </div>
@@ -181,7 +188,7 @@
                                     <i class="flaticon-mountain-1 icon"></i>
                                 </div>
                                 <h4><a href="/#">Diverse Destination</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut laborelorem</p>
+                                <p>An extensive knowledge about all the facets of unique Ethiopia and the joy of meeting travellers from all over the world represent the foundation of our company </p>
                             </div>
                         </div>
                     </div>
@@ -194,7 +201,7 @@
                                     <i class="flaticon-travel icon"></i>
                                 </div>
                                 <h4><a href="/#">Value of Money</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut laborelorem</p>
+                                <p>Our prices really are lower – guaranteed. Because of the way we work, our costs are lower and most of our tours are made with a reasonable price.</p>
                             </div>
                         </div>
                     </div>
@@ -207,7 +214,7 @@
                                     <i class="flaticon-tool icon"></i>
                                 </div>
                                 <h4><a href="/#">Passionate Travel</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut laborelorem</p>
+                                <p>Our Company work with the best hotels and guesthouses all over Ethiopia to guarantee you stay in a clean, comfortable and tourist standard accommodations.</p>
                             </div>
                         </div>
                     </div>
@@ -220,7 +227,7 @@
                                     <i class="flaticon-mountain icon"></i>
                                 </div>
                                 <h4><a href="/#">Beautiful Places</a></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut laborelorem</p>
+                                <p>Our company is fully run and owned by Ethiopians so we know the inside out of the country.</p>
                             </div>
                         </div>
                     </div>
@@ -243,11 +250,11 @@
                         <p>provides outstanding, personalized service to our clients. Come travel with us to see the beauty, the tradition, the majesty of Ethiopia.</p>
                         <p>Kamilo Tour and Travel Agency is committed to develop and promote Ethiopian tourism to the local and worldwide. For that matter, we are traveling and attending at several continental and international tourism trade fares held in different countries.</p>
                         <ul class="social__icon social--bg--color">
-                            <li><a href="/https://www.linkedin.com/"><i class="zmdi zmdi-linkedin"></i></a></li>
-                            <li><a href="/https://www.pinterest.com/"><i class="zmdi zmdi-pinterest"></i></a></li>
-                            <li><a href="/https://www.tumblr.com/"><i class="zmdi zmdi-tumblr"></i></a></li>
-                            <li><a href="/https://plus.google.com/"><i class="zmdi zmdi-google"></i></a></li>
-                            <li><a href="/https://www.facebook.com/"><i class="zmdi zmdi-facebook"></i></a></li>
+                            <li><a href="/https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="/https://www.pinterest.com/"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a href="/https://www.tumblr.com/"><i class="fa fa-tumblr"></i></a></li>
+                            <li><a href="/https://plus.google.com/"><i class="fa fa-google"></i></a></li>
+                            <li><a href="/https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -439,15 +446,15 @@
                                             <div class="packages__hover__info">
                                                 <div class="package__hover__inner">
                                                     <h4><a href="#">{{$package->title}}</a></h4>
-                                                    <h6><i class="zmdi zmdi-alarm"></i>{{$package->length}}</h6>
+                                                    <h6><i class="fa fa-alarm"></i>{{$package->length}}</h6>
                                                     <p> {{substr($package->detail,0,150)}}... </p>
                                                     <div class="package--rating--btn">
                                                         <ul class="rating">
-                                                            <li><i class="zmdi zmdi-star"></i></li>
-                                                            <li><i class="zmdi zmdi-star"></i></li>
-                                                            <li><i class="zmdi zmdi-star"></i></li>
-                                                            <li><i class="zmdi zmdi-star"></i></li>
-                                                            <li><i class="zmdi zmdi-star"></i></li>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star"></i></li>
+                                                            <li><i class="fa fa-star"></i></li>
                                                         </ul>
                                                         <div class="packages__btn">
                                                             <a class="view__btn" href="/package/{{$package->slug}}">view more</a>
@@ -720,7 +727,7 @@
                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                             <div class="contact bg-cat-1">
                                 <div class="address__icon">
-                                    <i class="zmdi zmdi-pin"></i>
+                                    <i class="fa fa-pin"></i>
                                 </div>
                                 <div class="address__details">
                                     <p>Alcatraz Island Photo Albf dhaka ,<br>New York</p>
@@ -732,7 +739,7 @@
                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                             <div class="contact bg-cat-1">
                                 <div class="address__icon">
-                                    <i class="zmdi zmdi-email"></i>
+                                    <i class="fa fa-email"></i>
                                 </div>
                                 <div class="address__details">
                                     <p><a href="/mailto:www.yourmail.com">www.yourmail.com</a></p>
@@ -745,7 +752,7 @@
                         <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                             <div class="contact bg-cat-1">
                                 <div class="address__icon">
-                                    <i class="zmdi zmdi-phone"></i>
+                                    <i class="fa fa-phone"></i>
                                 </div>
                                 <div class="address__details">
                                     <p><a href="/phone:+66025644424857">+660 256444 24857</a></p>
@@ -758,7 +765,7 @@
                         <div class="hidden-md hidden-lg col-sm-6 hidden-xs">
                             <div class="contact bg-cat-1">
                                 <div class="address__icon">
-                                    <i class="zmdi zmdi-phone"></i>
+                                    <i class="fa fa-phone"></i>
                                 </div>
                                 <div class="address__details">
                                     <p><a href="/phone:+66025644424857">+660 256444 24857</a></p>

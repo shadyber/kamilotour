@@ -95,7 +95,7 @@ $('.mobile-menu nav').meanmenu({
   05. ScrollUp
 ---------------------------- */
 $.scrollUp({
-    scrollText: '<i class="zmdi zmdi-chevron-up"></i>',
+    scrollText: '<i class="fa fa-chevron-up"></i>',
     easingType: 'linear',
     scrollSpeed: 900,
     animation: 'fade'
@@ -132,7 +132,7 @@ $('.fixed-newslatter').css({'margin-bottom': $newsletter_height.height() + 'px'}
       autoplayTimeout: 10000,
       autoplayHoverPause: true,
       autoplay: true,
-      navText: [ '<i class="zmdi zmdi-arrow-left"></i>', '<i class="zmdi zmdi-arrow-right"></i>' ],
+      navText: [ '<i class="fa fa-arrow-left"></i>', '<i class="fa fa-arrow-right"></i>' ],
       dots: true,
       responsive:{
         0:{

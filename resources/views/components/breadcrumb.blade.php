@@ -5,10 +5,10 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="bradcaump__inner text-center">
-                        <h2 class="bradcaump-title">Contact Us</h2>
+                        <h2 class="bradcaump-title">@yield('title')</h2>
                         <nav class="bradcaump-inner">
                             <a class="breadcrumb-item" href="/">Home</a>
-                            <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i><i class="zmdi zmdi-chevron-right"></i></span>
+                            <span class="brd-separetor"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></span>
                             <span class="breadcrumb-item active">@yield('title')</span>
                         </nav>
                     </div>
