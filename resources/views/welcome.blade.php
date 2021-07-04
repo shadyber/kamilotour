@@ -1,10 +1,17 @@
-
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Kamilo // Tour and Travel Agency</title>
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -30,6 +37,10 @@
 
     <!-- Modernizr JS -->
     <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -133,12 +144,8 @@
                             <!-- End Single option -->
                             <!-- Start Single option -->
                             <div class="single__option">
-                                <select>
-                                    <option>month</option>
-                                    <option>janu</option>
-                                    <option>feb</option>
-                                    <option>march</option>
-                                </select>
+                                <input type="date" placeholder="plan">
+
                             </div>
                             <!-- End Single option -->
                             <!-- Start Single option -->
@@ -418,212 +425,49 @@
                 </div>
             </div>
             <!-- End Our Section Title area -->
+            <!-- End Our Section Title area -->
             <div class="row">
                 <div class="special__package__container clearfix mt-10">
-                    <!-- Start Single Packages -->
-                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                        <div class="packages">
-                            <div class="package__thumb">
-                                <img src="/images/special/1.jpg" alt="packages images">
-                                <div class="packages__hover__info">
-                                    <div class="package__hover__inner">
-                                        <h4><a href="/#">australia</a></h4>
-                                        <h6><i class="zmdi zmdi-alarm"></i>5 days 4 nights</h6>
-                                        <p>Lorem ipsum dolor sit amet, consectet adipisicing elit, sed do eiusmod tempor incididuntq thgf</p>
-                                        <div class="package--rating--btn">
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                            <div class="packages__btn">
-                                                <a class="view__btn" href="/tour-details.html">view more</a>
+                    @foreach(\App\Models\Product::lastN(6)->chunk(3) as $chunk)
+                        <div class="row">
+                        @foreach($chunk as $package)
+                            <!-- Start Single Packages -->
+                                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+                                    <div class="packages">
+                                        <div class="package__thumb">
+                                            <img src="{{$package->thumb}}" alt="packages images">
+                                            <div class="packages__hover__info">
+                                                <div class="package__hover__inner">
+                                                    <h4><a href="#">{{$package->title}}</a></h4>
+                                                    <h6><i class="zmdi zmdi-alarm"></i>{{$package->length}}</h6>
+                                                    <p> {{substr($package->detail,0,150)}}... </p>
+                                                    <div class="package--rating--btn">
+                                                        <ul class="rating">
+                                                            <li><i class="zmdi zmdi-star"></i></li>
+                                                            <li><i class="zmdi zmdi-star"></i></li>
+                                                            <li><i class="zmdi zmdi-star"></i></li>
+                                                            <li><i class="zmdi zmdi-star"></i></li>
+                                                            <li><i class="zmdi zmdi-star"></i></li>
+                                                        </ul>
+                                                        <div class="packages__btn">
+                                                            <a class="view__btn" href="/package/{{$package->slug}}">view more</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="package__details">
+                                            <div class="package__details__inner">
+                                                <p>Offer Available</p>
+                                                <p class="packg__prize">${{$package->offer}}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="package__details">
-                                <div class="package__details__inner">
-                                    <p>Offer Available</p>
-                                    <p class="packg__prize">$300</p>
-                                </div>
-                            </div>
+                                <!-- End Single Packages -->
+                            @endforeach
                         </div>
-                    </div>
-                    <!-- End Single Packages -->
-                    <!-- Start Single Packages -->
-                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                        <div class="packages">
-                            <div class="package__thumb">
-                                <img src="/images/special/8.jpg" alt="packages images">
-                                <div class="packages__hover__info">
-                                    <div class="package__hover__inner">
-                                        <h4><a href="/#">australia</a></h4>
-                                        <h6><i class="zmdi zmdi-alarm"></i>5 days 4 nights</h6>
-                                        <p>Lorem ipsum dolor sit amet, consectet adipisicing elit, sed do eiusmod tempor incididuntq thgf</p>
-                                        <div class="package--rating--btn">
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                            <div class="packages__btn">
-                                                <a class="view__btn" href="/tour-details.html">view more</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="package__details">
-                                <div class="package__details__inner">
-                                    <p>Offer Available</p>
-                                    <p class="packg__prize">$300</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Packages -->
-                    <!-- Start Single Packages -->
-                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                        <div class="packages">
-                            <div class="package__thumb">
-                                <img src="/images/special/3.jpg" alt="packages images">
-                                <div class="packages__hover__info">
-                                    <div class="package__hover__inner">
-                                        <h4><a href="/#">australia</a></h4>
-                                        <h6><i class="zmdi zmdi-alarm"></i>5 days 4 nights</h6>
-                                        <p>Lorem ipsum dolor sit amet, consectet adipisicing elit, sed do eiusmod tempor incididuntq thgf</p>
-                                        <div class="package--rating--btn">
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                            <div class="packages__btn">
-                                                <a class="view__btn" href="/tour-details.html">view more</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="package__details">
-                                <div class="package__details__inner">
-                                    <p>Offer Available</p>
-                                    <p class="packg__prize">$300</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Packages -->
-                    <!-- Start Single Packages -->
-                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                        <div class="packages">
-                            <div class="package__thumb">
-                                <img src="/images/special/4.jpg" alt="packages images">
-                                <div class="packages__hover__info">
-                                    <div class="package__hover__inner">
-                                        <h4><a href="/#">australia</a></h4>
-                                        <h6><i class="zmdi zmdi-alarm"></i>5 days 4 nights</h6>
-                                        <p>Lorem ipsum dolor sit amet, consectet adipisicing elit, sed do eiusmod tempor incididuntq thgf</p>
-                                        <div class="package--rating--btn">
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                            <div class="packages__btn">
-                                                <a class="view__btn" href="/tour-details.html">view more</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="package__details">
-                                <div class="package__details__inner">
-                                    <p>Offer Available</p>
-                                    <p class="packg__prize">$300</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Packages -->
-                    <!-- Start Single Packages -->
-                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                        <div class="packages">
-                            <div class="package__thumb">
-                                <img src="/images/special/5.jpg" alt="packages images">
-                                <div class="packages__hover__info">
-                                    <div class="package__hover__inner">
-                                        <h4><a href="/#">australia</a></h4>
-                                        <h6><i class="zmdi zmdi-alarm"></i>5 days 4 nights</h6>
-                                        <p>Lorem ipsum dolor sit amet, consectet adipisicing elit, sed do eiusmod tempor incididuntq thgf</p>
-                                        <div class="package--rating--btn">
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                            <div class="packages__btn">
-                                                <a class="view__btn" href="/tour-details.html">view more</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="package__details">
-                                <div class="package__details__inner">
-                                    <p>Offer Available</p>
-                                    <p class="packg__prize">$300</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Packages -->
-                    <!-- Start Single Packages -->
-                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                        <div class="packages">
-                            <div class="package__thumb">
-                                <img src="/images/special/6.jpg" alt="packages images">
-                                <div class="packages__hover__info">
-                                    <div class="package__hover__inner">
-                                        <h4><a href="/#">australia</a></h4>
-                                        <h6><i class="zmdi zmdi-alarm"></i>5 days 4 nights</h6>
-                                        <p>Lorem ipsum dolor sit amet, consectet adipisicing elit, sed do eiusmod tempor incididuntq thgf</p>
-                                        <div class="package--rating--btn">
-                                            <ul class="rating">
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                                <li><i class="zmdi zmdi-star"></i></li>
-                                            </ul>
-                                            <div class="packages__btn">
-                                                <a class="view__btn" href="/tour-details.html">view more</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="package__details">
-                                <div class="package__details__inner">
-                                    <p>Offer Available</p>
-                                    <p class="packg__prize">$300</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Packages -->
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -639,7 +483,7 @@
                         <h4>customers with discount <span class="text-theme">40%</span></h4>
 
                         <div class="time-wrap ptb-50">
-                            <div  data-countdown="2020/01/01"></div>
+                            <div  datape-countdown="2020/01/01"></div>
                         </div>
 
                         <div class="count__down__btn">
@@ -651,92 +495,7 @@
         </div>
     </section>
     <!-- End Countdown Area -->
-    <!-- Start our Team Area -->
-    <section class="team__area bg-white pt-100 pb-70">
-        <div class="container">
-            <!-- Start Our Section Title area -->
-            <div class="row">
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                    <div class="section__title text-center">
-                        <h2 class="title__line">meet <span class="text-theme">the guys</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utllaf </p>
-                    </div>
-                </div>
-            </div>
-            <!-- End Our Section Title area -->
-            <div class="row">
-                <div class="team__wrap clearfix mt-50 xs--mt--20">
-                    <!-- Start Single Team -->
-                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                        <div class="team">
-                            <div class="team__thumb bg-theme">
-                                <img src="/images/team/2.jpg" alt="team images">
-                            </div>
-                            <div class="team__details">
-                                <div class="team__details__inner">
-                                    <h4><a href="/#">anika mollik</a></h4>
-                                    <h6>Chief CEO Officer</h6>
-                                    <ul class="social__icon icon--position--center">
-                                        <li><a href="/https://www.linkedin.com/"><i class="zmdi zmdi-linkedin"></i></a></li>
-                                        <li><a href="/https://www.pinterest.com/"><i class="zmdi zmdi-pinterest"></i></a></li>
-                                        <li><a href="/https://www.tumblr.com/"><i class="zmdi zmdi-tumblr"></i></a></li>
-                                        <li><a href="/https://plus.google.com/"><i class="zmdi zmdi-google"></i></a></li>
-                                        <li><a href="/https://www.facebook.com/"><i class="zmdi zmdi-facebook"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Team -->
-                    <!-- Start Single Team -->
-                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                        <div class="team">
-                            <div class="team__thumb bg-theme">
-                                <img src="/images/team/1.jpg" alt="team images">
-                            </div>
-                            <div class="team__details">
-                                <div class="team__details__inner">
-                                    <h4><a href="/#">NIPA Bali</a></h4>
-                                    <h6>Chief CEO Officer</h6>
-                                    <ul class="social__icon icon--position--center">
-                                        <li><a href="/https://www.linkedin.com/"><i class="zmdi zmdi-linkedin"></i></a></li>
-                                        <li><a href="/https://www.pinterest.com/"><i class="zmdi zmdi-pinterest"></i></a></li>
-                                        <li><a href="/https://www.tumblr.com/"><i class="zmdi zmdi-tumblr"></i></a></li>
-                                        <li><a href="/https://plus.google.com/"><i class="zmdi zmdi-google"></i></a></li>
-                                        <li><a href="/https://www.facebook.com/"><i class="zmdi zmdi-facebook"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Team -->
-                    <!-- Start Single Team -->
-                    <div class="col-md-4 col-lg-4 hidden-sm col-xs-12">
-                        <div class="team">
-                            <div class="team__thumb bg-theme">
-                                <img src="/images/team/3.jpg" alt="team images">
-                            </div>
-                            <div class="team__details">
-                                <div class="team__details__inner">
-                                    <h4><a href="/#">jon smith</a></h4>
-                                    <h6>Chief CEO Officer</h6>
-                                    <ul class="social__icon icon--position--center">
-                                        <li><a href="/https://www.linkedin.com/"><i class="zmdi zmdi-linkedin"></i></a></li>
-                                        <li><a href="/https://www.pinterest.com/"><i class="zmdi zmdi-pinterest"></i></a></li>
-                                        <li><a href="/https://www.tumblr.com/"><i class="zmdi zmdi-tumblr"></i></a></li>
-                                        <li><a href="/https://plus.google.com/"><i class="zmdi zmdi-google"></i></a></li>
-                                        <li><a href="/https://www.facebook.com/"><i class="zmdi zmdi-facebook"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Team -->
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End our Team Area -->
+
     <!-- Start Top Destination Area -->
     <section class="top__distination__area bg-white pb-100">
         <div class="container">
@@ -755,14 +514,15 @@
                     <!-- Start Single distanation -->
                     <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                         <div class="top__distanation__inner">
+
                             <!-- Start Single -->
                             <div class="distanation">
                                 <div class="distanation__thumb bg-theme">
                                     <img src="/images/top/1.jpg" alt="distanation images">
                                 </div>
                                 <div class="distanation__details">
-                                    <h4>ottawa</h4>
-                                    <h6>canada</h6>
+                                    <h4>Axum</h4>
+                                    <h6>Heun Church</h6>
                                 </div>
                             </div>
                             <!-- End Single -->
@@ -772,14 +532,15 @@
                                     <img src="/images/top/2.jpg" alt="distanation images">
                                 </div>
                                 <div class="distanation__details">
-                                    <h4>tokyo</h4>
-                                    <h6>japan</h6>
+                                    <h4>Afar</h4>
+                                    <h6>Dankale</h6>
                                 </div>
                             </div>
                             <!-- End Single -->
                         </div>
                     </div>
                     <!-- End Single distanation -->
+
                     <!-- Start Single distanation -->
                     <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                         <div class="top__distanation__inner xs--mt--30">
@@ -789,19 +550,19 @@
                                     <img src="/images/top/3.jpg" alt="distanation images">
                                 </div>
                                 <div class="distanation__details">
-                                    <h4>sydney</h4>
-                                    <h6>australia</h6>
+                                    <h4>Harar</h4>
+                                    <h6>Harar Old City</h6>
                                 </div>
                             </div>
                             <!-- End Single -->
                             <!-- Start Single -->
                             <div class="distanation">
                                 <div class="distanation__thumb bg-theme">
-                                    <img src="/images/top/2.jpg" alt="distanation images">
+                                    <img src="/images/top/4.jpg" alt="distanation images">
                                 </div>
                                 <div class="distanation__details">
-                                    <h4>singapore</h4>
-                                    <h6>singapore</h6>
+                                    <h4>Bahir Dar</h4>
+                                    <h6>Birth Place of Blue Nile</h6>
                                 </div>
                             </div>
                             <!-- End Single -->
@@ -871,7 +632,46 @@
                                         <img src="/images/test/client/1.png" alt="testimonial images">
                                     </div>
                                     <div class="testimoaial__details">
-                                        <p>Lorem ipsum dolor sit amet, consecteitur adipisicing elit, sedgh do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                                        <p>Brilliant. We have travelled a lot and using an in country, agent kamilo tour and travel
+                                            to organise the trip within this fascinating country was perfect.</p>
+                                        <h4><a href="/#">ANGELA MORRISON</a></h4>
+                                        <h6>Tourist</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single Testimonial Area -->
+                            <!-- Start Single Testimonial Area -->
+                            <div class="testimoaial__wrap">
+                                <div class="testimonial__inner text-center">
+                                    <div class="tesimoaial__thumb">
+                                        <img src="/images/test/client/2.png" alt="testimonial images">
+                                    </div>
+                                    <div class="testimoaial__details">
+                                        <p>Arranging a bespoke adventure was a new experience for me. However, from the moment we were met at Lalibela airport,
+                                            we knew we were in safe hands.
+                                            The places we stayed in were all great , and our needs were taken care of every step of the way.
+                                            I won't hesitate to contact kamilo agency next time I'm in Ethiopia (for there will be a next time!)
+                                            and I heartily recommend this agency to all fellow Travellers.</p>
+                                        <h4><a href="/#">HANNAH SMITH</a></h4>
+                                        <h6>Tourist</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Single Testimonial Area -->
+                            <!-- Start Single Testimonial Area -->
+                            <div class="testimoaial__wrap">
+                                <div class="testimonial__inner text-center">
+                                    <div class="tesimoaial__thumb">
+                                        <img src="/images/test/client/3.png" alt="testimonial images">
+                                    </div>
+                                    <div class="testimoaial__details">
+                                        <p>
+                                            I would recommend any traveler do plenty research on the countries they plan to visit prior in addition to using a travel guide.
+
+                                        </p>
+                                        <p>
+                                            The vacation was wonderful.
+                                        </p>
                                         <h4><a href="/#">NIPA Bali</a></h4>
                                         <h6>ceo</h6>
                                     </div>
@@ -882,40 +682,19 @@
                             <div class="testimoaial__wrap">
                                 <div class="testimonial__inner text-center">
                                     <div class="tesimoaial__thumb">
-                                        <img src="/images/test/client/1.png" alt="testimonial images">
+                                        <img src="/images/test/client/4.png" alt="testimonial images">
                                     </div>
                                     <div class="testimoaial__details">
-                                        <p>Lorem ipsum dolor sit amet, consecteitur adipisicing elit, sedgh do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                        <h4><a href="/#">NIPA Bali</a></h4>
-                                        <h6>ceo</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Testimonial Area -->
-                            <!-- Start Single Testimonial Area -->
-                            <div class="testimoaial__wrap">
-                                <div class="testimonial__inner text-center">
-                                    <div class="tesimoaial__thumb">
-                                        <img src="/images/test/client/1.png" alt="testimonial images">
-                                    </div>
-                                    <div class="testimoaial__details">
-                                        <p>Lorem ipsum dolor sit amet, consecteitur adipisicing elit, sedgh do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                        <h4><a href="/#">NIPA Bali</a></h4>
-                                        <h6>ceo</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Testimonial Area -->
-                            <!-- Start Single Testimonial Area -->
-                            <div class="testimoaial__wrap">
-                                <div class="testimonial__inner text-center">
-                                    <div class="tesimoaial__thumb">
-                                        <img src="/images/test/client/1.png" alt="testimonial images">
-                                    </div>
-                                    <div class="testimoaial__details">
-                                        <p>Lorem ipsum dolor sit amet, consecteitur adipisicing elit, sedgh do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                        <h4><a href="/#">NIPA Bali</a></h4>
-                                        <h6>ceo</h6>
+                                        <p>
+                                            I can't thank Kamilo Tour and Travel enough for the itinerary he put together for us.
+                                            We did and saw so much in the 3 weeks we were in Ethiopia. There were no hitches and all the
+                                            guides were incredibly knowledgeable and so evidently proud of their own areas - and rightly so.
+                                            We were really looked after and every effort was made to make us feel welcome where ever we went.
+                                            Seeing how hard the people work just to survive a basic life is such a humbling experience and we both came away from
+                                            Ethiopia feeling lucky to have experienced it.
+                                        </p>
+                                        <h4><a href="/#">SUE TODD</a></h4>
+                                        <h6>Tourist</h6>
                                     </div>
                                 </div>
                             </div>
@@ -928,149 +707,73 @@
     </section>
     <!-- End Testimonial Area -->
     <!-- Start Blog Area -->
-    <section class="blog__area ptb-100 bg-white">
-        <div class="container">
-            <!-- Start Our Section Title area -->
-            <div class="row">
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                    <div class="section__title text-center">
-                        <h2 class="title__line">latest <span class="text-theme">post</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utllaf </p>
-                    </div>
-                </div>
-            </div>
-            <!-- End Our Section Title area -->
-            <div class="row">
-                <div class="bolg__wrap clearfix mt-50">
-                    <!-- Start Single Blog -->
-                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                        <div class="blog">
-                            <div class="blog__thumb">
-                                <img src="/images/blog/blog-img/1.jpg" alt="blog images">
-                            </div>
-                            <div class="blog__hover__information">
-                                <div class="blog__hover__inner">
-                                    <p class="time"><i class="zmdi zmdi-time"></i>Date : 26 oct 2016 </p>
-                                    <h2><a href="/#">blog post dummy title</a></h2>
-                                    <p>Lorem ipsum dolor silt ameconsecur adipisicing elit, sehgbd djlo eiusmod temporconsequat.</p>
-                                    <ul class="blog__like__comment">
-                                        <li><i class="zmdi zmdi-favorite"></i>20 Likes</li>
-                                        <li><i class="zmdi zmdi-comments"></i>02 Comments</li>
-                                    </ul>
-                                    <div class="blog__btn">
-                                        <a class="read__more__btn" href="/blog-details.html">read more</a>
-                                    </div>
+    <section class="contact__wrap ptb-100 bg-white">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.673660552166!2d38.74025561511851!3d9.002145593539513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b859ceee0ccf1%3A0x8dd38cb91b9a08ec!2zRXRoaW9waWEgVG91ciBhbmQgVHJhdmVscyAtIOGKouGJteGLruGMteGLqyDhi6jhjInhiaXhip3hibUsIOGMieGLniDhiqXhipMg4Yuo4YiY4Yqq4YqTIOGKquGIq-GLrQ!5e0!3m2!1sen!2set!4v1625432073191!5m2!1sen!2set"
+                width="100%" height="400"
+                style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <!-- Start Contact Area -->
+        <div class="contact__address bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="contact__wrap clearfix">
+                        <!-- Start Single Address -->
+                        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+                            <div class="contact bg-cat-1">
+                                <div class="address__icon">
+                                    <i class="zmdi zmdi-pin"></i>
+                                </div>
+                                <div class="address__details">
+                                    <p>Alcatraz Island Photo Albf dhaka ,<br>New York</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- End Single Blog -->
-                    <!-- Start Single Blog -->
-                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 xs--mt--30">
-                        <div class="blog">
-                            <div class="blog__thumb">
-                                <img src="/images/blog/blog-img/2.jpg" alt="blog images">
-                            </div>
-                            <div class="blog__hover__information">
-                                <div class="blog__hover__inner">
-                                    <p class="time"><i class="zmdi zmdi-time"></i>Date : 26 oct 2016 </p>
-                                    <h2><a href="/#">blog post dummy title</a></h2>
-                                    <p>Lorem ipsum dolor silt ameconsecur adipisicing elit, sehgbd djlo eiusmod temporconsequat.</p>
-                                    <ul class="blog__like__comment">
-                                        <li><i class="zmdi zmdi-favorite"></i>20 Likes</li>
-                                        <li><i class="zmdi zmdi-comments"></i>02 Comments</li>
-                                    </ul>
-                                    <div class="blog__btn">
-                                        <a class="read__more__btn" href="/blog-details.html">read more</a>
-                                    </div>
+                        <!-- End Single Address -->
+                        <!-- Start Single Address -->
+                        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+                            <div class="contact bg-cat-1">
+                                <div class="address__icon">
+                                    <i class="zmdi zmdi-email"></i>
+                                </div>
+                                <div class="address__details">
+                                    <p><a href="/mailto:www.yourmail.com">www.yourmail.com</a></p>
+                                    <p><a href="/mailto:www.yourmail.com">www.yourmail.com</a></p>
                                 </div>
                             </div>
                         </div>
+                        <!-- End Single Address -->
+                        <!-- Start Single Address -->
+                        <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+                            <div class="contact bg-cat-1">
+                                <div class="address__icon">
+                                    <i class="zmdi zmdi-phone"></i>
+                                </div>
+                                <div class="address__details">
+                                    <p><a href="/phone:+66025644424857">+660 256444 24857</a></p>
+                                    <p><a href="/phone:+66025644424857">+660 256444 24857</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Address -->
+                        <!-- Start Single Address -->
+                        <div class="hidden-md hidden-lg col-sm-6 hidden-xs">
+                            <div class="contact bg-cat-1">
+                                <div class="address__icon">
+                                    <i class="zmdi zmdi-phone"></i>
+                                </div>
+                                <div class="address__details">
+                                    <p><a href="/phone:+66025644424857">+660 256444 24857</a></p>
+                                    <p><a href="/phone:+66025644424857">+660 256444 24857</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Address -->
                     </div>
-                    <!-- End Single Blog -->
                 </div>
             </div>
         </div>
     </section>
     <!-- End Blog Area -->
-    <!-- Start Brand Area -->
-    <div class="brand__area pb-100 bg-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                    <ul class="brand__list bg-white">
-                        <li><a href="/#"><img src="/images/brand/1.png" alt="brand images"></a></li>
-                        <li><a href="/#"><img src="/images/brand/2.png" alt="brand images"></a></li>
-                        <li><a href="/#"><img src="/images/brand/3.png" alt="brand images"></a></li>
-                        <li><a href="/#"><img src="/images/brand/4.png" alt="brand images"></a></li>
-                        <li><a href="/#"><img src="/images/brand/1.png" alt="brand images"></a></li>
-                        <li class="hidden-md hidden-lg"><a href="/#"><img src="/images/brand/1.png" alt="brand images"></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Brand Area -->
-    <!-- Start Contact Area -->
-    <div class="contact__address bg-white">
-        <div class="container">
-            <div class="row">
-                <div class="contact__wrap clearfix">
-                    <!-- Start Single Address -->
-                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                        <div class="contact bg-cat-1">
-                            <div class="address__icon">
-                                <i class="zmdi zmdi-pin"></i>
-                            </div>
-                            <div class="address__details">
-                                <p>Alcatraz Island Photo Albf dhaka ,<br>New York</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Address -->
-                    <!-- Start Single Address -->
-                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                        <div class="contact bg-cat-1">
-                            <div class="address__icon">
-                                <i class="zmdi zmdi-email"></i>
-                            </div>
-                            <div class="address__details">
-                                <p><a href="/mailto:www.yourmail.com">www.yourmail.com</a></p>
-                                <p><a href="/mailto:www.yourmail.com">www.yourmail.com</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Address -->
-                    <!-- Start Single Address -->
-                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                        <div class="contact bg-cat-1">
-                            <div class="address__icon">
-                                <i class="zmdi zmdi-phone"></i>
-                            </div>
-                            <div class="address__details">
-                                <p><a href="/phone:+66025644424857">+660 256444 24857</a></p>
-                                <p><a href="/phone:+66025644424857">+660 256444 24857</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Address -->
-                    <!-- Start Single Address -->
-                    <div class="hidden-md hidden-lg col-sm-6 hidden-xs">
-                        <div class="contact bg-cat-1">
-                            <div class="address__icon">
-                                <i class="zmdi zmdi-phone"></i>
-                            </div>
-                            <div class="address__details">
-                                <p><a href="/phone:+66025644424857">+660 256444 24857</a></p>
-                                <p><a href="/phone:+66025644424857">+660 256444 24857</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Address -->
-                </div>
-            </div>
-        </div>
-    </div>
+
 @include('components.footer')
 
 </div>

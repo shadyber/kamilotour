@@ -24,6 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 
+Route::resource('/package', App\Http\Controllers\ProductController::class);
 Route::resource('/address', App\Http\Controllers\AddressController::class);
 Route::resource('/album', App\Http\Controllers\AlbumController::class);
 Route::resource('/photo', App\Http\Controllers\PhotoController::class);

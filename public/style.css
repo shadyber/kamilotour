@@ -8,7 +8,7 @@
 
 
 -----------------------------------------------------------------------------------
-  
+
   CSS INDEX
   ===================
 
@@ -72,10 +72,10 @@
     position: relative;
 }
 .box-timer {
-  display: -webkit-box; 
+  display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
-  display: -webkit-flex; 
+  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
   -moz-box-align: center;
@@ -97,10 +97,10 @@
   margin: auto 20px;
   text-align: center;
   width: 100px;
-  display: -webkit-box; 
+  display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
-  display: -webkit-flex; 
+  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
   -moz-box-align: center;
@@ -124,10 +124,10 @@
   color: #fff !important;
   font-size: 50px;
   justify-content: center;
-  display: -webkit-box; 
+  display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
-  display: -webkit-flex; 
+  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
   -moz-box-align: center;
@@ -215,7 +215,7 @@
  #scrollUp {
   background: #ffb300 none repeat scroll 0 0;
 }
- 
+
 
 /*---------------------------------------
    End Scroll To Top
@@ -226,10 +226,10 @@
 ----------------------------------------*/
 
 .select__option__inner {
-  display: -webkit-box; 
+  display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
-  display: -webkit-flex; 
+  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
   -moz-box-align: center;
@@ -276,9 +276,9 @@
   padding-left: 19px;
   width: 184px;
 }
-.single__option [type="text"]:focus, 
+.single__option [type="text"]:focus,
 .single__option [type="text"]:focus::-moz-placeholder,
-.newsletter__inner [type="email"]:focus, 
+.newsletter__inner [type="email"]:focus,
 .newsletter__inner [type="email"]:focus::-moz-placeholder{
   color: #333333;
 }
@@ -296,6 +296,16 @@
     width: 184px;
 }
 .single__option select {
+    border: 1px solid #fff;
+    color: #333333;
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 19px;
+    text-transform: uppercase;
+    width: 184px;
+}
+date {
     border: 1px solid #fff;
     color: #333333;
     font-size: 14px;
@@ -441,10 +451,10 @@
   padding: 100px 0;
 }
 .welcome__area .row {
-  display: -webkit-box; 
+  display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
-  display: -webkit-flex; 
+  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
   -moz-box-align: center;
@@ -602,10 +612,10 @@
   08. Our Special Package Area
 ----------------------------------------*/
 .package__details {
-  display: -webkit-box; 
+  display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
-  display: -webkit-flex; 
+  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
   -moz-box-align: center;
@@ -1008,13 +1018,13 @@
 .testimonial__area .owl-dots{
   position:relative;
   padding-top:70px;
-  text-align:center;  
+  text-align:center;
 }
 
 .testimonial__area .owl-dots .owl-dot{
   position:relative;
   display:inline-block;
-  margin:0px 8px; 
+  margin:0px 8px;
 }
 .testimonial__area .owl-dots .owl-dot span {
   background: #fff none repeat scroll 0 0;
@@ -1040,10 +1050,10 @@
   transition: all 0.3s ease 0s;
 }
 .blog__hover__information {
-  display: -webkit-box; 
+  display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
-  display: -webkit-flex; 
+  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
   -moz-box-align: center;
@@ -1121,10 +1131,10 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   justify-content: space-around;
   padding: 64px 0;
-  display: -webkit-box; 
+  display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
-  display: -webkit-flex; 
+  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
   -moz-box-align: center;
@@ -1137,10 +1147,10 @@
   15. Our Contact Area
 ----------------------------------------*/
 .contact {
-  display: -webkit-box; 
+  display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
-  display: -webkit-flex; 
+  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
   -moz-box-align: center;
@@ -1316,10 +1326,10 @@
   16. Our Bradcaump Area
 ----------------------------------------*/
 .ht__bradcaump__wrap {
-    display: -webkit-box; 
+    display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
-    display: -webkit-flex; 
+    display: -webkit-flex;
     display: flex;
     -webkit-box-align: center;
     -moz-box-align: center;
@@ -1513,7 +1523,7 @@
 
 }
 .hast-count{
-  margin: 0 8px; 
+  margin: 0 8px;
 }
 
 
@@ -1867,11 +1877,11 @@
   left: auto;
 }
 
-.view-mode li a:hover::before, 
+.view-mode li a:hover::before,
 .view-mode li.active a::before {
     opacity: 1;
 }
-.view-mode li a:hover, 
+.view-mode li a:hover,
 .view-mode li.active a {
     color: #fff;
 }
@@ -2010,19 +2020,19 @@ input:-moz-placeholder { / Firefox 18- /
 
 
 
-.single__tour__box input::-webkit-input-placeholder { 
+.single__tour__box input::-webkit-input-placeholder {
   color: #fff !important;
   opacity: 1;
 }
-.single__tour__box input::-moz-placeholder { 
+.single__tour__box input::-moz-placeholder {
   color: #fff !important;
   opacity: 1;
 }
-.single__tour__box input::-ms-input-placeholder { 
+.single__tour__box input::-ms-input-placeholder {
   color: #fff !important;
   opacity: 1;
 }
-.single__tour__box input::-moz-placeholder { 
+.single__tour__box input::-moz-placeholder {
   color: #fff !important;
   opacity: 1;
 }
@@ -2172,7 +2182,7 @@ input:-moz-placeholder { / Firefox 18- /
 
 
 /* --------------------
-New code 
+New code
 --------------------------*/
 
 .single__overview .overview__days {

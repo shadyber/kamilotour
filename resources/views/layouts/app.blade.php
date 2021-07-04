@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Contact Us // HTML Template</title>
+    <title>{{env('APP_NAME')}}  @yield('title')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -41,26 +41,7 @@
 <!-- Body main wrapper start -->
 <div class="wrapper fixed-newslatter">
    @include('components.header')
-    <!-- Start Bradcaump area -->
-    <div class="ht__bradcaump__area bg-5" data-black-overlay="7">
-        <div class="ht__bradcaump__wrap">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="bradcaump__inner text-center">
-                            <h2 class="bradcaump-title">Contact Us</h2>
-                            <nav class="bradcaump-inner">
-                                <a class="breadcrumb-item" href="/index.html">Home</a>
-                                <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i><i class="zmdi zmdi-chevron-right"></i></span>
-                                <span class="breadcrumb-item active">Contact Us</span>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Bradcaump area -->
+@include('components.breadcrumb')
 
     @yield('content')
    @include('components.footer')
