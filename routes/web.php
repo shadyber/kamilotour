@@ -42,4 +42,10 @@ Route::get('/contactus', function (){
     return view('contactus')->with('address',$address);
 });
 
+Route::get('/ourgallery', function (){
+    $photos=\App\Models\Photo::OrderBy('id','desc')->paginate(10);
+    $albums=\App\Models\Album::all();
+    return view('gallery')->with(['albums'=>$albums,'photos'=>$photos]);
+});
+
 

@@ -108,8 +108,10 @@
                         </div>
                 @endforeach
                 </div>
+
             </div>
-        </div>
+            {{$packages->links()}}
+            </div>
     </section>
 
 
