@@ -18,6 +18,7 @@ class CreatePhotosTable extends Migration
             $table->string('photo');
             $table->string('thumb');
             $table->string('title');
+            $table->string('slug');
             $table->longText('detail')->nullable();
             $table->bigInteger('album_id')->unsigned();
             $table->foreign('album_id')->on('albums')->references('id');

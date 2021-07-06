@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Album;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
+use Image;
 class AlbumController extends Controller
 {
     public function __construct()
@@ -47,38 +48,46 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'photo' => 'mimes:jpeg,png|max:1024'
 
+        $request->validate([
+            'title' => 'required',
+            'detail' => 'required',
+            'photo'=>'required|mimes:jpg,png,jpeg|max:2048',
         ]);
-        $url='/img/slide/slide1.jpg';
-        if($request->has('photo'))
-        {
 
-            try{
 
-                $extension = $request->photo->extension();
-                $request->photo->storeAs('/public', $validatedData['name'].time().".".$extension);
-                $url = Storage::url($validatedData['name'].time().".".$extension);
+        if($request->hasFile('photo')) {
 
-            }catch(Exception $ex){
-                print('Image not Uploaded'.$ex);
-            }
+            $newImageName=uniqid().'_'. $request->_token.'.'.$request->photo->extension();
 
-        }else{
-            print('Photo not found');
+
+            $file = $request->file('photo');
+            $file_name =$newImageName;
+            $destinationPath = 'images/albums/';
+            $new_img = Image::make($file->getRealPath())->resize(true, true);
+
+// save file with medium quality
+            $new_img->save($destinationPath . $file_name, 100);
+            $new_img->save($destinationPath.'thumbnails/' . $file_name, 15);
+
+            $request->photo->move(public_path('images/albums'),$newImageName);
+
         }
 
-        $album = new Album;
-        $album->name = $request->name;
-        $album->detail = $request->detail;
-        $album->photo =$url;
 
-        $album->save();
 
-        return redirect()->back()->with(['success'=>'Album Created','album'=>$album]);
+        $insert = [
+            'slug' => SlugService::createSlug(Album::class, 'slug', $request->title.'-'.$request->_token),
+            'title' => $request->title,
+            'detail' => $request->detail,
 
+            'photo'=>'/images/albums/'.$newImageName,
+            'thumb'=>'/images/albums/thumbnails/'.$newImageName,
+        ];
+
+        Album ::insertGetId($insert);
+
+        return redirect()->back()->with('success','Greate! Album created successfully.');
 
     }
 

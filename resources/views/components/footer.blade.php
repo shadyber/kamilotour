@@ -12,7 +12,9 @@
                                     <img src="/images/logo/kamilo.png" alt="logo">
                                 </a>
                             </div>
-                            <p class="footer__dtl"> Kamilo Tour and Travel is a 100% owned and operated Ethiopian company. We are passionate about giving you the ultimate Ethiopian experience possible. All our tours use the best hotels, guides and transport vehicles.So why not take a trip with us and let us show you the Ethiopia that we know and love!</p>
+                            <p class="footer__dtl">
+                            {{\App\Models\About::about()->last()->name}}
+                            </p>
                             <ul class="footer__social__icon">
                                 <li><a href="/https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
                                 <li><a href="/https://www.pinterest.com/"><i class="fa fa-pinterest"></i></a></li>

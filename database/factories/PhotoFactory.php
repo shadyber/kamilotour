@@ -23,6 +23,7 @@ class PhotoFactory extends Factory
     {
         return [
             'title' => $this->faker->name(),
+            'slug' => $this->faker->name(),
             'photo' => $this->faker->imageUrl(720,1024,'tourism'),
             'thumb' => $this->faker->imageUrl(320,460,'tourism'),
             'detail' => $this->faker->sentence,

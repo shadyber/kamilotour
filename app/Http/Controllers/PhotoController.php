@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use App\Models\Photo;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
+use Image;
 class PhotoController extends Controller
 { public function __construct()
 {
@@ -33,11 +35,8 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        $photos=Photo::all();
         $albums=Album::all();
-        $stations=Station::all();
-
-        return view('admin.photo.create')->with(['photos'=>$photos,'albums'=>$albums,'stations'=>$stations]);
+        return view('admin.photo.create')->with(['albums'=>$albums]);
     }
 
     /**
@@ -54,32 +53,49 @@ class PhotoController extends Controller
 
         ]);
         $url='/img/slide/slide1.jpg';
-        //try uplodaing photo with for loop
-        if($request->has('photo'))
-        {
+        $request->validate([
+            'title' => 'required',
+            'detail' => 'required',
+            'photo'=>'required|mimes:jpg,png,jpeg|max:2048',
+        ]);
 
-            try{
 
-                $extension = $request->photo->extension();
-                $request->photo->storeAs('/public', $validatedData['title'].time().".".$extension);
-                $url = Storage::url($validatedData['title'].time().".".$extension);
+        if($request->hasFile('photo')) {
 
-            }catch(Exception $ex){
-                print('Image not Uploaded'.$ex);
-            }
+            $newImageName=uniqid().'_'. $request->_token.'.'.$request->photo->extension();
 
-        }else{
+
+            $file = $request->file('photo');
+            $file_name =$newImageName;
+            $destinationPath = 'images/photos/';
+            $new_img = Image::make($file->getRealPath())->resize(true, true);
+
+// save file with medium quality
+            $new_img->save($destinationPath . $file_name, 100);
+            $new_img->save($destinationPath.'thumbnails/' . $file_name, 15);
+
+            $request->photo->move(public_path('images/photos'),$newImageName);
+
+
+
+    }else{
             print('Photo not found');
         }
 
-        $photo = new Photo;
-        $photo->title = $request->title;
-        $photo->album_id = $request->album_id;
-        $photo->photo =$url;
 
-        $photo->save();
 
-        return redirect()->back()->with(['success'=>'Photo Created','photo'=>$photo]);
+        $insert = [
+            'slug' => SlugService::createSlug(Photo::class, 'slug', $request->title.'-'.$request->_token),
+            'title' => $request->title,
+            'detail' => $request->detail,
+            'album_id' => $request->album_id,
+            'photo'=>'/images/photos/'.$newImageName,
+            'thumb'=>'/images/photos/thumbnails/'.$newImageName,
+        ];
+
+        Photo ::insertGetId($insert);
+
+        return redirect()->back()->with('success','Greate! Photo created successfully.');
 
     }
 

@@ -22,6 +22,6 @@ class About extends Model
     ];
 
     public static function about(){
-        return Address::orderBy('id', 'desc')->take(1)->get();
+        return About::orderBy('id', 'desc')->take(1)->get();
     }
 }

@@ -34,9 +34,12 @@ class AddressController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {  $address=Address::all()->last();
+        if(!$address){
+            return view('admin.address.create');
+        }
 
-        return view('admin.address.create');
+        return view('admin.address.index')->with(['address'=>$address]);
 
     }
 

@@ -24,11 +24,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class,'index'])->name('dashbaord');
 Route::resource('/package', App\Http\Controllers\ProductController::class);
 Route::resource('/address', App\Http\Controllers\AddressController::class);
 Route::resource('/album', App\Http\Controllers\AlbumController::class);
 Route::resource('/photo', App\Http\Controllers\PhotoController::class);
 Route::resource('/about', App\Http\Controllers\AboutController::class);
+Route::resource('/destination', App\Http\Controllers\DestinationController::class);
 
 
 
