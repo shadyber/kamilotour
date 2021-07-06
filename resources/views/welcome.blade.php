@@ -519,11 +519,11 @@
                                <!-- Start Single -->
                                <div class="distanation">
                                    <div class="distanation__thumb bg-theme">
-                                       <img src="images/top/1.jpg" alt="distanation images">
+                                       <img src="{{$destination->thumb}}" alt="distanation images">
                                    </div>
                                    <div class="distanation__details">
-                                       <h4>ottawa</h4>
-                                       <h6>canada</h6>
+                                       <h4>{{$destination->title}}</h4>
+                                       <h6>{{$destination->detail}}</h6>
                                    </div>
                                </div>
                                <!-- End Single -->
@@ -539,11 +539,11 @@
                                <!-- Start Single -->
                                <div class="distanation">
                                    <div class="distanation__thumb bg-theme">
-                                       <img src="images/top/3.jpg" alt="distanation images">
+                                       <img src="{{$destination->thumb}}" alt="distanation images">
                                    </div>
                                    <div class="distanation__details">
-                                       <h4>sydney</h4>
-                                       <h6>australia</h6>
+                                       <h4>{{$destination->title}}</h4>
+                                       <h6>{{$destination->detail}}</h6>
                                    </div>
                                </div>
                                <!-- End Single -->
