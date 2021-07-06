@@ -50,6 +50,7 @@
                                 <li><a href="/aboutus">about</a></li>
 
                                 <li><a href="/ourgallery">gallery</a></li>
+
                                 <li class="drop"><a href="/package">Packages</a>
                                     <ul class="dropdown">
                                         @foreach(\App\Models\Product::lastN(10) as $package)
@@ -58,6 +59,16 @@
 
                                     </ul>
                                 </li>
+
+                                <li class="drop"><a href="/package">Destinations</a>
+                                    <ul class="dropdown">
+                                        @foreach(\App\Models\Destination::lastN(10) as $dest)
+                                        <li><a href="/destination/{{$dest->slug}}">{{$dest->title}} </a></li>
+                                        @endforeach
+
+                                    </ul>
+                                </li>
+
                                 <li><a href="/contactus">contact</a></li>
                                 @guest
                                 <li><a class="modal-view button" href="/#" data-toggle="modal" data-target="#loginform"><i class="fa fa-account"></i>Login</a></li>
@@ -106,12 +117,13 @@
             <div class="mobile-menu clearfix">
                 <nav id="mobile_dropdown">
                     <ul>
-                        <li><a href="/l">home</a></li>
-                        <li><a href="/about">about</a></li>
-                        <li><a href="/package">package list</a></li>
+                        <li><a href="/l">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/package">Packages list</a></li>
+                        <li><a href="/destination">Destinations list</a></li>
 
-                        <li><a href="/gallery">gallery</a></li>
-                        <li><a href="/contact">contact</a></li>
+                        <li><a href="/gallery">Gallery</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>

@@ -523,7 +523,7 @@
                                    </div>
                                    <div class="distanation__details">
                                        <h4>{{$destination->title}}</h4>
-                                       <h6>{{$destination->detail}}</h6>
+                                       <h6>{{substr(strip_tags($destination->detail),0,50)}}</h6>
                                    </div>
                                </div>
                                <!-- End Single -->
@@ -543,7 +543,7 @@
                                    </div>
                                    <div class="distanation__details">
                                        <h4>{{$destination->title}}</h4>
-                                       <h6>{{$destination->detail}}</h6>
+                                       <h6>{{substr(strip_tags($destination->detail),0,50)}}</h6>
                                    </div>
                                </div>
                                <!-- End Single -->
