@@ -97,7 +97,7 @@
                                 </div>
                                 <div class="overview__dewtails">
                                     <h2><a href="#">{{$package->title}}</a></h2>
-                                    {{$package->detail}}
+                                    {!! $package->detail !!}
                                 </div>
                                 <div class="overview__thumd">
                                     <div class="overview__inner">

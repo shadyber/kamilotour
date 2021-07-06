@@ -10,7 +10,7 @@ class DestinationController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('index','show');
 
     }
     /**
@@ -21,13 +21,8 @@ class DestinationController extends Controller
     public function index()
     {
         //
-        $destinations=Destination::all()->last();
-        if(!$destinations){
-            return view('admin.destination.create');
-        }
-
-        return view('admin.destination.index')->with(['destinations'=>$destinations]);
-    }
+        $destinations=Destination::orderBy('id','desc')->paginate(9);
+        return view('destination.index')->with(['destinations'=>$destinations]);    }
 
     /**
      * Show the form for creating a new resource.
@@ -91,15 +86,20 @@ class DestinationController extends Controller
         return redirect()->back()->with('success','Greate! Destination created successfully.');
     }
 
+
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Destination  $destination
-     * @return \Illuminate\Http\Response
+     * @param  string $slug
+     * @return Destination
      */
-    public function show(Destination $destination)
+    public function show($slug)
     {
-        //
+        $destination=Destination::where('slug',$slug)->first();
+        $destination->visit++;
+        $destination->save();
+
+        return view('destination.show')->with('destination',$destination);
     }
 
     /**
