@@ -20,6 +20,7 @@ class CreateDestinationsTable extends Migration
             $table->string('photo');
             $table->string('thumb');
             $table->longText('detail');
+            $table->integer('visit')->default(0);
             $table->timestamps();
         });
     }

@@ -20,4 +20,13 @@ class Destination extends Model
         ];
     }
 
+
+    public static function lastN($n){
+        return Destination::orderBy('id', 'desc')->take($n)->get();
+    }
+
+    public static function popularN($n){
+        return Destination::orderBy('visit', 'desc')->take($n)->get();
+    }
+
 }

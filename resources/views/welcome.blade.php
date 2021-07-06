@@ -498,129 +498,107 @@
         </div>
     </section>
     <!-- End Countdown Area -->
+       <section class="top__distination__area bg-white pb-100">
+           <div class="container">
+               <!-- Start Our Section Title area -->
+               <div class="row">
+                   <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                       <div class="section__title text-center">
+                           <h2 class="title__line">top <span class="text-theme">destination</span></h2>
+                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utllaf </p>
+                       </div>
+                   </div>
+               </div>
+               <!-- End Our Section Title area -->
+               <div class="row">
+                   <div class="top__distination__wrap clearfix mt-50">
+                       <!-- Start Single distanation -->
+                       <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+                           <div class="top__distanation__inner">
+                           @foreach(\App\Models\Destination::lastN(2) as $destination)
+                               <!-- Start Single -->
+                               <div class="distanation">
+                                   <div class="distanation__thumb bg-theme">
+                                       <img src="images/top/1.jpg" alt="distanation images">
+                                   </div>
+                                   <div class="distanation__details">
+                                       <h4>ottawa</h4>
+                                       <h6>canada</h6>
+                                   </div>
+                               </div>
+                               <!-- End Single -->
+                               @endforeach
+                           </div>
+                       </div>
+                       <!-- End Single distanation -->
+                       <!-- Start Single distanation -->
+                       <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+                           <div class="top__distanation__inner xs--mt--30">
+                           @foreach(\App\Models\Destination::popularN(2) as $destination)
 
-    <!-- Start Top Destination Area -->
-    <section class="top__distination__area bg-white pb-100">
-        <div class="container">
-            <!-- Start Our Section Title area -->
-            <div class="row">
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                    <div class="section__title text-center">
-                        <h2 class="title__line">top <span class="text-theme">destination</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utllaf </p>
-                    </div>
-                </div>
-            </div>
-            <!-- End Our Section Title area -->
-            <div class="row">
-                <div class="top__distination__wrap clearfix mt-50">
-                    <!-- Start Single distanation -->
-                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                        <div class="top__distanation__inner">
-
-                            <!-- Start Single -->
-                            <div class="distanation">
-                                <div class="distanation__thumb bg-theme">
-                                    <img src="/images/top/1.jpg" alt="distanation images">
-                                </div>
-                                <div class="distanation__details">
-                                    <h4>Axum</h4>
-                                    <h6>Heun Church</h6>
-                                </div>
-                            </div>
-                            <!-- End Single -->
-                            <!-- Start Single -->
-                            <div class="distanation">
-                                <div class="distanation__thumb bg-theme">
-                                    <img src="/images/top/2.jpg" alt="distanation images">
-                                </div>
-                                <div class="distanation__details">
-                                    <h4>Afar</h4>
-                                    <h6>Dankale</h6>
-                                </div>
-                            </div>
-                            <!-- End Single -->
-                        </div>
-                    </div>
-                    <!-- End Single distanation -->
-
-                    <!-- Start Single distanation -->
-                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                        <div class="top__distanation__inner xs--mt--30">
-                            <!-- Start Single -->
-                            <div class="distanation">
-                                <div class="distanation__thumb bg-theme">
-                                    <img src="/images/top/3.jpg" alt="distanation images">
-                                </div>
-                                <div class="distanation__details">
-                                    <h4>Harar</h4>
-                                    <h6>Harar Old City</h6>
-                                </div>
-                            </div>
-                            <!-- End Single -->
-                            <!-- Start Single -->
-                            <div class="distanation">
-                                <div class="distanation__thumb bg-theme">
-                                    <img src="/images/top/4.jpg" alt="distanation images">
-                                </div>
-                                <div class="distanation__details">
-                                    <h4>Bahir Dar</h4>
-                                    <h6>Birth Place of Blue Nile</h6>
-                                </div>
-                            </div>
-                            <!-- End Single -->
-                        </div>
-                    </div>
-                    <!-- End Single distanation -->
-                    <!-- Start Single distanation -->
-                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                        <div class="top__distanation__inner sm-mt-30 xs--mt--30">
-                            <!-- Start Single -->
-                            <div class="distanation distanation--big--images">
-                                <div class="distanation__thumb bg-theme">
-                                    <img src="/images/top/big-img/1.jpg" alt="distanation images">
-                                </div>
-                                <div class="distanation__details distanation--big--images--hover">
-                                    <h3>season</h3>
-                                    <h2>special & amazing</h2>
-                                    <h6>tour</h6>
-                                    <p>price drop <span class="text-theme">$499</span></p>
-                                    <div class="distanation__btn">
-                                        <a class="rm__btn btn--transparent" href="/book-the-tour.html">book now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single -->
-                        </div>
-                    </div>
-                    <!-- End Single distanation -->
-                    <!-- Start Single distanation -->
-                    <div class="hidden-md hidden-lg col-sm-6 hidden-xs">
-                        <div class="top__distanation__inner sm-mt-30">
-                            <!-- Start Single -->
-                            <div class="distanation distanation--big--images">
-                                <div class="distanation__thumb bg-theme">
-                                    <img src="/images/top/big-img/1.jpg" alt="distanation images">
-                                </div>
-                                <div class="distanation__details distanation--big--images--hover">
-                                    <h3>season</h3>
-                                    <h2>special & amazing</h2>
-                                    <h6>tour</h6>
-                                    <p>price drop <span class="text-theme">$499</span></p>
-                                    <div class="distanation__btn">
-                                        <a class="rm__btn btn--transparent" href="/#">book now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single -->
-                        </div>
-                    </div>
-                    <!-- End Single distanation -->
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Top Destination Area -->
+                               <!-- Start Single -->
+                               <div class="distanation">
+                                   <div class="distanation__thumb bg-theme">
+                                       <img src="images/top/3.jpg" alt="distanation images">
+                                   </div>
+                                   <div class="distanation__details">
+                                       <h4>sydney</h4>
+                                       <h6>australia</h6>
+                                   </div>
+                               </div>
+                               <!-- End Single -->
+                               @endforeach
+                           </div>
+                       </div>
+                       <!-- End Single distanation -->
+                       <!-- Start Single distanation -->
+                       <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+                           <div class="top__distanation__inner sm-mt-30 xs--mt--30">
+                               <!-- Start Single -->
+                               <div class="distanation distanation--big--images">
+                                   <div class="distanation__thumb bg-theme">
+                                       <img src="images/top/big-img/1.jpg" alt="distanation images">
+                                   </div>
+                                   <div class="distanation__details distanation--big--images--hover">
+                                       <h3>season</h3>
+                                       <h2>special &amp; amazing</h2>
+                                       <h6>tour</h6>
+                                       <p>price drop <span class="text-theme">$499</span></p>
+                                       <div class="distanation__btn">
+                                           <a class="rm__btn btn--transparent" href="book-the-tour.html">book now</a>
+                                       </div>
+                                   </div>
+                               </div>
+                               <!-- End Single -->
+                           </div>
+                       </div>
+                       <!-- End Single distanation -->
+                       <!-- Start Single distanation -->
+                       <div class="hidden-md hidden-lg col-sm-6 hidden-xs">
+                           <div class="top__distanation__inner sm-mt-30">
+                               <!-- Start Single -->
+                               <div class="distanation distanation--big--images">
+                                   <div class="distanation__thumb bg-theme">
+                                       <img src="images/top/big-img/1.jpg" alt="distanation images">
+                                   </div>
+                                   <div class="distanation__details distanation--big--images--hover">
+                                       <h3>season</h3>
+                                       <h2>special &amp; amazing</h2>
+                                       <h6>tour</h6>
+                                       <p>price drop <span class="text-theme">$499</span></p>
+                                       <div class="distanation__btn">
+                                           <a class="rm__btn btn--transparent" href="#">book now</a>
+                                       </div>
+                                   </div>
+                               </div>
+                               <!-- End Single -->
+                           </div>
+                       </div>
+                       <!-- End Single distanation -->
+                   </div>
+               </div>
+           </div>
+       </section>
     <!-- Start Testimonial Area -->
     <section class="testimonial__area ptb-100 bg-3" data-black-overlay="7">
         <div class="container">
