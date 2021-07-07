@@ -51,3 +51,27 @@ Route::get('/ourgallery', function (){
 });
 
 
+
+
+Route::get('/newapp', function (){
+    \Illuminate\Support\Facades\Artisan::call('migrate:fresh');
+    \Illuminate\Support\Facades\Artisan::call('db:seed');
+    echo 'initialized';
+});
+
+
+Route::get('/restart-server',function (){
+
+    $exitCode = Artisan::call('route:clear');
+
+    echo  $exitCode;
+    $exitCode1 = Artisan::call('view:clear');
+
+    echo  $exitCode1;
+    $exitCode2 = Artisan::call('config:clear');
+
+    echo  $exitCode2;
+    $exitCode3 = Artisan::call('cache:clear');
+
+    echo  $exitCode3;
+});
