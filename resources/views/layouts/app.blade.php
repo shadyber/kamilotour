@@ -36,6 +36,20 @@
 </head>
 
 <body>
+
+<div class="spinner-wrapper">
+
+    <div class="sk-chase" style="align-items: center; top: 50%;left: 50%;">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+    </div>
+
+
+</div>
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="/http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -69,6 +83,16 @@
 <!-- Main js file that contents all jQuery plugins activation. -->
 
 <script src="/js/main.js"></script>
-
+<script>
+    $(document).ready(function() {
+//Preloader
+        preloaderFadeOutTime = 500;
+        function hidePreloader() {
+            var preloader = $('.spinner-wrapper');
+            preloader.fadeOut(preloaderFadeOutTime);
+        }
+        hidePreloader();
+    });
+</script>
 @yield('js')
 </body>
