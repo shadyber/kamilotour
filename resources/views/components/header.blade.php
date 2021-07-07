@@ -11,7 +11,7 @@
                 <div class="header__top">
                     <div class="header__top__left">
                         <p><span class="text-theme">Contact:</span><a href="/#">0088-234-675-827</a></p>
-                        <p class="hidden-sm"><span class="text-theme">Opening Hours:</span> Mon - Sat 8.00 - 18.00. Sunday CLOSED</p>
+                        <p class="hidden-sm"><span class="text-theme">Opening Hours:</span> Mon - Sat 8.00 - 18.00. Sunday OPEN</p>
                     </div>
                     <div class="header__top__right">
                         <ul class="login__regester">
