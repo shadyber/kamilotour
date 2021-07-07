@@ -29,7 +29,7 @@
                                             <div class="packages__hover__info">
                                                 <div class="package__hover__inner">
                                                     <h4><a href="#">{{$destination->title}}</a></h4>
-                                                    <p> {{substr($destination->detail,0,150)}}... </p>
+                                                    <p> {{substr(strip_tags($destination->detail),0,150)}}... </p>
                                                     <div class="package--rating--btn">
                                                         <ul class="rating">
                                                             <li><i class="fa fa-star"></i></li>
@@ -58,7 +58,10 @@
                     @endforeach
                 </div>
 
-            </div> 
+
+            </div>
+
+            {{$destinations->links()}}
         </div>
     </section>
 

@@ -10,7 +10,7 @@
             <div class="col-md-8 col-sm-12 col-lg-8">
                 <div class="header__top">
                     <div class="header__top__left">
-                        <p><span class="text-theme">Contact:</span><a href="/#">0088-234-675-827</a></p>
+                        <p><span class="text-theme">Contact:</span><a href="tel:{{\App\Models\Address::address()->last()->tel}}">{{\App\Models\Address::address()->last()->tel}}</a></p>
                         <p class="hidden-sm"><span class="text-theme">Opening Hours:</span> Mon - Sat 8.00 - 18.00. Sunday OPEN</p>
                     </div>
                     <div class="header__top__right">

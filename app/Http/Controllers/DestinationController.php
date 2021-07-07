@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Destination;
+use App\Models\Product;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Image;
@@ -20,10 +21,9 @@ class DestinationController extends Controller
      */
     public function index()
     {
-        //
-        $destinations=Destination::orderBy('id','desc')->paginate(9);
-        return view('destination.index')->with(['destinations'=>$destinations]);    }
-
+        $destinations = Destination::orderBy('id', 'desc')->paginate(9);
+        return view('destination.index')->with(['destinations' => $destinations]);
+    }
     /**
      * Show the form for creating a new resource.
      *
