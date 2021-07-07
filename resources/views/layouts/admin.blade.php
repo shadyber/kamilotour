@@ -9,7 +9,7 @@
     <meta name="keywords"
           content="Admin,Kamilo Tour and Travel Agency">
     <meta name="description"
-          content="Inspirational qouts">
+          content="ADmin Page">
     <meta name="robots" content="noindex,nofollow">
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
@@ -28,7 +28,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 
-    <title>Info251. @yield('title')</title>
+    <title>Kamilo Admin : @yield('title')</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="/admin/image/png" sizes="16x16" href="/admin/plugins/images/favicon.png">

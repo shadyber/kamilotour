@@ -441,9 +441,9 @@
                                             <img src="{{$package->thumb}}" alt="packages images">
                                             <div class="packages__hover__info">
                                                 <div class="package__hover__inner">
-                                                    <h4><a href="#">{{$package->title}}</a></h4>
+                                                    <h4><a  href="/package/{{$package->slug}}">{{$package->title}}</a></h4>
                                                     <h6><i class="fa fa-alarm"></i>{{$package->length}}</h6>
-                                                    <p> {{substr($package->detail,0,150)}}... </p>
+                                                    <p> {{substr(strip_tags($package->detail),0,150)}}... </p>
                                                     <div class="package--rating--btn">
                                                         <ul class="rating">
                                                             <li><i class="fa fa-star"></i></li>
@@ -471,7 +471,12 @@
                             @endforeach
                         </div>
                     @endforeach
+
                 </div>
+                <div class="count__down__btn align-items-center">
+                    <a class="rm__btn btn-outline-dark" href="/package">Load More</a>
+                </div>
+
             </div>
         </div>
     </section>
@@ -490,7 +495,7 @@
                         </div>
 
                         <div class="count__down__btn">
-                            <a class="rm__btn btn--transparent" href="/book">get tour</a>
+                            <a class="rm__btn btn--transparent" href="/package">get tour</a>
                         </div>
                     </div>
                 </div>
@@ -689,11 +694,7 @@
     <!-- End Testimonial Area -->
     <!-- Start Blog Area -->
     <section class="contact__wrap ptb-100 bg-white">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.673660552166!2d38.74025561511851!3d9.002145593539513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b859ceee0ccf1%3A0x8dd38cb91b9a08ec!2zRXRoaW9waWEgVG91ciBhbmQgVHJhdmVscyAtIOGKouGJteGLruGMteGLqyDhi6jhjInhiaXhip3hibUsIOGMieGLniDhiqXhipMg4Yuo4YiY4Yqq4YqTIOGKquGIq-GLrQ!5e0!3m2!1sen!2set!4v1625432073191!5m2!1sen!2set"
-                width="100%" height="400"
-                style="border:0;" allowfullscreen="" loading="lazy">
-
-        </iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3527.5697275729967!2d38.700877863698764!3d9.009477342899295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8726c7c7b339%3A0x527d79b2c312cf68!2sKolfe%20Keranio%2C%20Addis%20Ababa!5e0!3m2!1sen!2set!4v1625679829079!5m2!1sen!2set" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         <!-- Start Contact Area -->
         @foreach(\App\Models\Address::address() as $address)
         <div class="contact__address bg-white">

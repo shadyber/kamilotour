@@ -37,7 +37,7 @@
                                         <i class="fa fa-paper-plane"></i>
                                     </div>
                                     <div class="tweets__details">
-                                        <p>{{substr($package->detail,0,72)}}</p>
+                                            <p>{{substr(strip_tags($package->detail),0,72)}}</p>
                                         <a href="/package/{{$package->slug}}">{{$package->title}}</a>
                                     </div>
                                 </div>
