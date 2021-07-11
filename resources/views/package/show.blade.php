@@ -85,6 +85,9 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
+                    <img src="{{$package->photo}}" alt="img img-responsive">
+                </div>
+                <div class="col-md-12">
                     <!-- Start Tour Overview Area -->
                     <div class="tour__overview__wrap">
                         <h2 class="section__title__3">Tour Overview</h2>

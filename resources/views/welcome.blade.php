@@ -307,7 +307,7 @@
                                 </div>
                                 <div class="service__details">
                                     <h4><a href="/#">Book Cheap Online</a></h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed dliluptatem sequi nesciunt. Neque porro quisquam est</p>
+                                    <p>Yout can diretly book a package online at any minute.</p>
                                 </div>
                             </div>
                             <!-- End Single Service -->
@@ -318,7 +318,7 @@
                                 </div>
                                 <div class="service__details">
                                     <h4><a href="/#">Hotel Booking</a></h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed dliluptatem sequi nesciunt. Neque porro quisquam est</p>
+                                    <p>Find a greate hotels in all over Ethiopia</p>
                                 </div>
                             </div>
                             <!-- End Single Service -->
@@ -329,7 +329,7 @@
                                 </div>
                                 <div class="service__details">
                                     <h4><a href="/#">Taxi Cap Booking</a></h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed dliluptatem sequi nesciunt. Neque porro quisquam est</p>
+                                    <p> Book a Cap from a list of ride service in Ethiopia </p>
                                 </div>
                             </div>
                             <!-- End Single Service -->
@@ -340,7 +340,7 @@
                                 </div>
                                 <div class="service__details">
                                     <h4><a href="/#">Amazing Tour</a></h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed dliluptatem sequi nesciunt. Neque porro quisquam est</p>
+                                    <p>The Most Amazing Tour is our most  basic task.</p>
                                 </div>
                             </div>
                             <!-- End Single Service -->
@@ -370,7 +370,7 @@
                             </div>
                             <div class="funfact__count__inner">
                                 <div class="fact__count">
-                                    <span class="count">94604</span>
+                                    <span class="count">9464</span>
                                 </div>
                             </div>
                             <div class="fact__title">
@@ -437,7 +437,7 @@
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                     <div class="section__title text-center">
                         <h2 class="title__line">SPECIAL <span class="text-theme">PACKAGES</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utllaf </p>
+                        <p>our most valuable packages </p>
                     </div>
                 </div>
             </div>
@@ -445,19 +445,19 @@
             <!-- End Our Section Title area -->
             <div class="row">
                 <div class="special__package__container clearfix mt-10">
-                    @foreach(\App\Models\Product::lastN(6)->chunk(3) as $chunk)
+                    @foreach(\App\Models\Product::lastN(9)->chunk(3) as $chunk)
                         <div class="row">
                         @foreach($chunk as $package)
                             <!-- Start Single Packages -->
                                 <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
                                     <div class="packages">
                                         <div class="package__thumb">
-                                            <img src="{{$package->thumb}}" alt="packages images">
+                                            <a href="/package/{{$package->slug}}"><img src="{{$package->thumb}}" alt="packages images"></a>
                                             <div class="packages__hover__info">
                                                 <div class="package__hover__inner">
                                                     <h4><a  href="/package/{{$package->slug}}">{{$package->title}}</a></h4>
                                                     <h6><i class="fa fa-alarm"></i>{{$package->length}}</h6>
-                                                    <p> {{substr(strip_tags($package->detail),0,150)}}... </p>
+                                                    <p><a href="/package/{{$package->slug}}"> {{substr(strip_tags($package->detail),0,150)}}...</a>  </p>
                                                     <div class="package--rating--btn">
                                                         <ul class="rating">
                                                             <li><i class="fa fa-star"></i></li>
@@ -524,7 +524,7 @@
                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                        <div class="section__title text-center">
                            <h2 class="title__line">top <span class="text-theme">destination</span></h2>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt utllaf </p>
+                           <p>top destination in Ethiopia </p>
                        </div>
                    </div>
                </div>
