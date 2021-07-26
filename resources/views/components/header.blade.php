@@ -117,12 +117,12 @@
             <div class="mobile-menu clearfix">
                 <nav id="mobile_dropdown">
                     <ul>
-                        <li><a href="/l">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="/about">About</a></li>
                         <li><a href="/package">Packages list</a></li>
                         <li><a href="/destination">Destinations list</a></li>
 
-                        <li><a href="/gallery">Gallery</a></li>
+                        <li><a href="/ourgallery">Gallery</a></li>
                         <li><a href="/contact">Contact</a></li>
                     </ul>
                 </nav>
